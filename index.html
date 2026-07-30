@@ -374,9 +374,15 @@
     </div>
   </footer>
 
+  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+    ↑
+  </button>
+
   <script>
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.main-nav');
+    const homeSection = document.getElementById('home');
+    const backToTopButton = document.querySelector('.back-to-top');
     const hostedRouteMap = {
       home: '/',
       about: '/about',
@@ -424,6 +430,15 @@
     const getHostedSectionFromLocation = () => {
       const currentPath = normalizePath(window.location.pathname);
       return hostedPathMap[currentPath] || null;
+    };
+
+    const updateBackToTopVisibility = () => {
+      if (!homeSection || !backToTopButton) {
+        return;
+      }
+
+      const showButton = window.scrollY > Math.max(homeSection.offsetHeight - 140, 200);
+      backToTopButton.classList.toggle('is-visible', showButton);
     };
 
     if (toggle && nav) {
@@ -498,6 +513,20 @@
 
         scrollToSection(sectionId, { behavior: 'auto', updateHistory: false });
       });
+    }
+
+    if (backToTopButton) {
+      backToTopButton.addEventListener('click', () => {
+        if (!isFileProtocol) {
+          window.history.pushState({ sectionId: 'home' }, '', hostedRouteMap.home);
+        }
+
+        scrollToSection('home', { behavior: 'smooth', updateHistory: false });
+      });
+
+      window.addEventListener('scroll', updateBackToTopVisibility, { passive: true });
+      window.addEventListener('resize', updateBackToTopVisibility);
+      updateBackToTopVisibility();
     }
 
     const revealTargets = document.querySelectorAll('main > section:not(#home), footer.site-footer');

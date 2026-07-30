@@ -89,6 +89,37 @@ button, input { font: inherit; }
 .btn-green { color:white; background:var(--green); }
 .btn-outline { color:var(--green-dark); border-color:var(--green); background:white; }
 .btn-block { width:100%; }
+.back-to-top {
+  position:fixed;
+  right:24px;
+  bottom:24px;
+  z-index:120;
+  width:54px;
+  height:54px;
+  display:grid;
+  place-items:center;
+  padding:0;
+  color:white;
+  font-size:1.5rem;
+  font-weight:800;
+  cursor:pointer;
+  background:var(--pink);
+  border:0;
+  border-radius:50%;
+  box-shadow:0 16px 28px rgba(0,0,0,.18);
+  opacity:0;
+  visibility:hidden;
+  transform:translateY(16px);
+  transition:opacity .25s ease, transform .25s ease, visibility .25s ease, background .2s ease;
+}
+.back-to-top:hover {
+  background:var(--pink-dark);
+}
+.back-to-top.is-visible {
+  opacity:1;
+  visibility:visible;
+  transform:translateY(0);
+}
 
 /* .hero { position:relative; overflow:hidden; background:radial-gradient(circle at 20% 10%, rgba(239,43,123,.08), transparent 22%), linear-gradient(90deg,#fff 0%,#fff 41%,#f7fbff 100%); background-image: url("assets/downtown-jax.png"); background-position:right; background-size: cover; background-repeat: no-repeat;} */
 
@@ -412,10 +443,10 @@ button, input { font: inherit; }
 .paid-for small { display:block; margin-top:5px; font-size:.66rem; text-transform:none; }
 
 @media (max-width: 980px) {
-  .nav-toggle { display:block; margin-left:auto; }
+  .nav-toggle { display:block; margin-left:0; order:3; }
   .main-nav { display:none; position:absolute; top:92px; left:0; right:0; background:white; padding:20px; box-shadow:var(--shadow); flex-direction:column; gap:18px; }
   .main-nav.open { display:flex; }
-  .donate-top { margin-left:0; }
+  .donate-top { margin-left:auto; order:2; }
   .hero {background-image: linear-gradient(to top, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 60%), url(assets/downtown-jax.png); background-size: 170%; background-position-y: 120%;}
   .hero-grid { grid-template-columns:1fr; padding-top:52px; min-height:auto; }
   .hero-copy { text-align:center; }
@@ -446,6 +477,7 @@ button, input { font: inherit; }
 
 @media (max-width: 640px) {
   .container { width:min(100% - 28px, var(--container)); }
+  .back-to-top { right:16px; bottom:16px; width:48px; height:48px; font-size:1.3rem; }
   .nav-wrap { min-height:78px; gap:12px; }
   .header-mark { width:130px; }
   .header-mark__name { font-size:1.9rem; }
