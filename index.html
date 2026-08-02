@@ -352,11 +352,13 @@
     </div>
   </footer>
 
-  <button class="back-to-top" type="button" aria-label="Back to top" title="Back to top">
+  <a class="back-to-top" href="#home" aria-label="Back to top" title="Back to top">
     ↑
-  </button>
+  </a>
 
   <script>
+    document.body.classList.add('js-enabled');
+
     const toggle = document.querySelector('.nav-toggle');
     const nav = document.querySelector('.main-nav');
     const homeSection = document.getElementById('home');
@@ -494,7 +496,9 @@
     }
 
     if (backToTopButton) {
-      backToTopButton.addEventListener('click', () => {
+      backToTopButton.addEventListener('click', (event) => {
+        event.preventDefault();
+
         if (!isFileProtocol) {
           window.history.pushState({ sectionId: 'home' }, '', hostedRouteMap.home);
         }
