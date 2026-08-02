@@ -380,8 +380,8 @@ button, input { font: inherit; }
 .issues-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin-top:18px; }
 .issue-card { text-align:center; padding:28px 24px; border:1px solid #f1b9d0; border-radius:14px; background:rgba(255,255,255,.72); }
 .issue-icon {
-  width:72px;
-  height:72px;
+  width:100px;
+  height:100px;
   margin:0 auto 16px;
   display:grid;
   place-items:center;
@@ -391,13 +391,19 @@ button, input { font: inherit; }
   border-radius:22px;
 }
 .issue-icon__svg {
-  width:36px;
-  height:36px;
+  width:75px;
+  height:75px;
   fill:none;
   stroke:currentColor;
   stroke-width:1.7;
   stroke-linecap:round;
   stroke-linejoin:round;
+}
+.issue-icon__image {
+  width:75px;
+  height:75px;
+  display:block;
+  object-fit:contain;
 }
 .issue-card h3 { color:var(--green-dark); font-size:.9rem; text-transform:uppercase; }
 .issue-card p { margin:0; font-size:.86rem; }
