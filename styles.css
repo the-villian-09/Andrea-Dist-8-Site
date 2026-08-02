@@ -91,8 +91,9 @@ button, input { font: inherit; }
 .btn-block { width:100%; }
 .back-to-top {
   position:fixed;
-  right:24px;
-  bottom:24px;
+  right:max(16px, env(safe-area-inset-right));
+  bottom:max(16px, env(safe-area-inset-bottom));
+  left:auto;
   z-index:120;
   width:54px;
   height:54px;
@@ -489,7 +490,7 @@ button, input { font: inherit; }
 
 @media (max-width: 640px) {
   .container { width:min(100% - 28px, var(--container)); }
-  .back-to-top { right:16px; bottom:16px; width:48px; height:48px; font-size:1.3rem; }
+  .back-to-top { right:max(10px, env(safe-area-inset-right)); bottom:max(10px, env(safe-area-inset-bottom)); width:44px; height:44px; font-size:1.2rem; }
   .nav-wrap { min-height:78px; gap:12px; }
   .header-mark { width:130px; }
   .header-mark__name { font-size:1.9rem; }
