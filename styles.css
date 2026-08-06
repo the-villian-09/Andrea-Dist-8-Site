@@ -304,16 +304,16 @@ button, input, textarea { font: inherit; }
   overflow: hidden;
   box-shadow: 0 24px 60px rgba(0,0,0,.12);
   background: var(--green-dark);
-  padding: 10px;
+  padding: 5px;
 }
 .why-media__frame::before {
   content: "";
   position: absolute;
-  inset: -40px -30px auto auto;
-  width: 140px;
-  height: 140px;
+  inset: -40px -60px auto auto;
+  width: 280px;
+  height: 500px;
   background: var(--pink);
-  opacity: .18;
+  opacity: 1;
   border-radius: 50%;
   z-index: 0;
 }
@@ -324,7 +324,7 @@ button, input, textarea { font: inherit; }
   aspect-ratio: 3 / 4;
   object-fit: cover;
   object-position: center 15%;
-  border-radius: 18px;
+  border-radius: 23px;
   display: block;
 }
 .why-quote {
@@ -344,18 +344,24 @@ button, input, textarea { font: inherit; }
 /* Service list */
 .service-list {
   margin: 24px 0 0;
-  padding-left: 20px;
+  padding-left: 0;
   display: grid;
-  gap: 12px;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  list-style: none;
 }
 .service-list li {
-  padding-left: 8px;
+  padding: 18px 20px;
   color: var(--ink);
   font-size: .95rem;
+  line-height: 1.45;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,.05);
+  border-left: 4px solid var(--pink);
 }
 .service-list li::marker {
-  color: var(--pink);
-  font-size: 1.1rem;
+  display: none;
 }
 
 /* Legacy gallery section */
@@ -364,7 +370,6 @@ button, input, textarea { font: inherit; }
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 60px;
-  align-items: center;
 }
 .legacy-layout--gallery-left .legacy-gallery { order: 1; }
 .legacy-layout--gallery-left .legacy-copy { order: 2; }
@@ -630,6 +635,7 @@ button, input, textarea { font: inherit; }
   .legacy-layout--gallery-left .legacy-gallery,
   .legacy-layout--gallery-left .legacy-copy { order: 0; }
   .legacy-gallery { grid-auto-rows: 140px; }
+  .service-list { grid-template-columns: 1fr; }
   .split-section--image-left .split-media { order: 2; }
   .split-section--image-left .split-copy { order: 1; }
   .split-section--image-right .split-media { order: 2; }
@@ -661,6 +667,7 @@ button, input, textarea { font: inherit; }
   .why-quote { font-size: 1rem; padding: 18px 20px; }
   .legacy-copy h2 { font-size: 1.8rem; }
   .legacy-gallery { grid-auto-rows: 120px; gap: 10px; }
+  .service-list li { padding: 14px 16px; font-size: .9rem; }
   .bg-section__content h2 { font-size: 1.9rem; }
   .drives-list li { font-size: .98rem; }
   .contact-form { padding: 24px; }
