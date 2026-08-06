@@ -148,7 +148,7 @@ button, input, textarea { font: inherit; }
   min-height: 500px;
   /* overflow: hidden; */
   background-image: url(assets/downtown-jax-bw-fade-blur.png); 
-  background-position: cover;
+  background-size: cover;
   background-repeat: no-repeat; 
 }
 .hero-grid{
