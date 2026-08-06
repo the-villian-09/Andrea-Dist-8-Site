@@ -336,6 +336,56 @@ button, input, textarea { font: inherit; }
   color: var(--muted);
 }
 
+/* What I've Heard — content + video placeholders */
+.heard-section { background: #f9fbfa; }
+.heard-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: stretch;
+}
+.heard-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.heard-copy h2 {
+  margin: 0 0 22px;
+  color: var(--green-dark);
+  font-size: 2.2rem;
+  line-height: 1.2;
+}
+.heard-copy p {
+  margin: 0 0 16px;
+  color: var(--ink);
+}
+.heard-copy .lead-quote {
+  color: var(--green-dark);
+  font-size: 1.15rem;
+  font-weight: 700;
+  font-style: italic;
+  margin: 18px 0;
+}
+.heard-media {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr 1fr;
+  gap: 16px;
+}
+.heard-media .video-placeholder:nth-child(1) {
+  grid-column: span 2;
+}
+.heard-media .video-placeholder {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+.heard-media .video-placeholder__thumb {
+  flex: 1 1 auto;
+  min-height: 0;
+}
+.heard-media .video-placeholder__title { margin-top: 10px; }
+
 /* Why I'm Running — distinct from Legacy section */
 .why-section {
   background: linear-gradient(135deg, #fff8fb 0%, #f2f9f4 100%);
@@ -707,6 +757,7 @@ button, input, textarea { font: inherit; }
   .priority-card__media { min-height: 120px; }
   .priority-card__media img { width: 60px; height: 60px; }
   .split-layout { grid-template-columns: 1fr; gap: 40px; }
+  .heard-layout { grid-template-columns: 1fr; gap: 40px; }
   .why-layout { grid-template-columns: 1fr; gap: 40px; }
   .legacy-layout { grid-template-columns: 1fr; gap: 40px; }
   .legacy-layout--gallery-left .legacy-gallery,
@@ -723,6 +774,10 @@ button, input, textarea { font: inherit; }
   .split-section--image-right .split-copy { order: 1; }
   .why-media { order: 2; }
   .why-copy { order: 1; }
+  .heard-media { order: 2; }
+  .heard-copy { order: 1; }
+  .heard-media { grid-template-columns: 1fr; grid-template-rows: auto; }
+  .heard-media .video-placeholder:nth-child(1) { grid-column: span 1; }
   .bg-section { padding: 90px 0; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .contact-heading { text-align: center; }
@@ -754,6 +809,7 @@ button, input, textarea { font: inherit; }
   .video-placeholder { padding: 10px; }
   .video-placeholder__title { font-size: .85rem; }
   .video-placeholder__note { font-size: .75rem; }
+  .heard-media { gap: 12px; }
   .bg-section__content h2 { font-size: 1.9rem; }
   .drives-list li { font-size: .98rem; }
   .contact-form { padding: 24px; }
