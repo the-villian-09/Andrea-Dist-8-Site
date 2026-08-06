@@ -147,7 +147,9 @@ button, input, textarea { font: inherit; }
   height: calc(90vh - var(--header-height));
   min-height: 500px;
   /* overflow: hidden; */
-  background-image: url(assets/downtown-jax.png);  
+  background-image: url(assets/downtown-jax.png); 
+  background-position: cover;
+  background-repeat: no-repeat; 
 }
 .hero-grid{
   display: grid;
@@ -274,7 +276,6 @@ button, input, textarea { font: inherit; }
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 70px;
-  align-items: center;
 }
 .why-copy h2 {
   margin: 0 0 22px;
@@ -365,6 +366,8 @@ button, input, textarea { font: inherit; }
   gap: 60px;
   align-items: center;
 }
+.legacy-layout--gallery-left .legacy-gallery { order: 1; }
+.legacy-layout--gallery-left .legacy-copy { order: 2; }
 .legacy-copy h2 {
   margin: 0 0 20px;
   color: var(--green-dark);
@@ -624,6 +627,8 @@ button, input, textarea { font: inherit; }
   .split-layout { grid-template-columns: 1fr; gap: 40px; }
   .why-layout { grid-template-columns: 1fr; gap: 40px; }
   .legacy-layout { grid-template-columns: 1fr; gap: 40px; }
+  .legacy-layout--gallery-left .legacy-gallery,
+  .legacy-layout--gallery-left .legacy-copy { order: 0; }
   .legacy-gallery { grid-auto-rows: 140px; }
   .split-section--image-left .split-media { order: 2; }
   .split-section--image-left .split-copy { order: 1; }
