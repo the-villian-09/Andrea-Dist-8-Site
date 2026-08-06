@@ -148,7 +148,19 @@ button, input, textarea { font: inherit; }
   min-height: 500px;
   overflow: hidden;
 }
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: rgba(0, 0, 0, .22);
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  pointer-events: none;
+}
 .hero-image {
+  position: relative;
+  z-index: 0;
   width: 100%;
   height: 100%;
   overflow: hidden;
@@ -158,6 +170,7 @@ button, input, textarea { font: inherit; }
   height: 100%;
   object-fit: cover;
   object-position: top center;
+  opacity: .92;
 }
 
 /* Sections */
