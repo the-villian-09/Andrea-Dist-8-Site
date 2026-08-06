@@ -304,7 +304,7 @@ button, input, textarea { font: inherit; }
 .legacy-gallery {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  grid-auto-rows: 160px;
+  grid-auto-rows: 180px;
   gap: 14px;
 }
 .legacy-gallery__item {
@@ -318,13 +318,19 @@ button, input, textarea { font: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center 20%;
   display: block;
 }
+.legacy-gallery__item:nth-child(1) img { object-position: center 15%; }
+.legacy-gallery__item:nth-child(2) img { object-position: center 20%; }
+.legacy-gallery__item:nth-child(3) img { object-position: center 25%; }
+.legacy-gallery__item:nth-child(4) img { object-position: center 10%; }
 .legacy-gallery__item--large {
   grid-row: span 2;
 }
 .legacy-gallery__item--wide {
   grid-column: span 2;
+  grid-row: span 2;
 }
 
 /* Full-width background sections */
