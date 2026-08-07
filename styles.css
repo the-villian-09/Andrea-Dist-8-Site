@@ -713,6 +713,9 @@ button, input, textarea { font: inherit; }
   color: white;
   text-transform: uppercase;
 }
+.contact-heading h2 img{
+  width: 50%;
+}
 .contact-heading h2 .script-accent {
   color: var(--pink-soft);
   font: 400 4rem/1 "Pacifico", cursive;
@@ -800,6 +803,8 @@ button, input, textarea { font: inherit; }
   .top-bar__actions {
     justify-content: center;
   }
+
+
 }
 
 @media (max-width: 980px) {
@@ -840,6 +845,7 @@ button, input, textarea { font: inherit; }
   .bg-section { padding: 90px 0; }
   .contact-layout { grid-template-columns: 1fr; gap: 40px; }
   .contact-heading { text-align: center; }
+  .contact-heading h2 img{ margin: 0 auto; }
 }
 
 
