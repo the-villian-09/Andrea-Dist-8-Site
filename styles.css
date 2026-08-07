@@ -102,6 +102,11 @@ button, input, textarea { font: inherit; }
 .nav-toggle { display:none; background:none; border:0; padding:8px; }
 .nav-toggle span { display:block; width:26px; height:3px; margin:5px 0; background:var(--green-dark); }
 
+/* Header donate button: hidden while hero banner is in viewport */
+.site-header .donate-top { display:none; margin-left:0; }
+.site-header:not(.banner-visible) .donate-top { display:inline-flex; margin-left:auto; }
+.site-header:not(.banner-visible) .nav-toggle { margin-left:0; }
+
 /* Buttons */
 .btn { display:inline-flex; align-items:center; justify-content:center; gap:7px; padding:14px 24px; border-radius:4px; border:2px solid transparent; font-size:.78rem; font-weight:800; text-transform:uppercase; letter-spacing:.02em; transition:transform .2s ease, box-shadow .2s ease, background .2s ease; }
 .btn:hover { transform:translateY(-2px); box-shadow:0 10px 22px rgba(0,0,0,.12); }
@@ -879,10 +884,10 @@ button, input, textarea { font: inherit; }
   .top-bar__inner { flex-direction: column; gap: 8px; text-align: center; }
   .top-bar__slogan { font-size: 1.75rem; padding-bottom: 25px; flex-direction: column;}
   .top-bar__actions { justify-content: center; }
-  .nav-toggle { display:block; margin-left:0; order:3; }
+  .nav-toggle { display:block; margin-left:auto; order:3; }
   .main-nav { display:none; position:absolute; top:80px; left:0; right:0; background:white; padding:20px; box-shadow:var(--shadow); flex-direction:column; gap:18px; }
   .main-nav.open { display:flex; }
-  .donate-top { margin-left:auto; order:2; }
+  .donate-top { margin-left:0; order:2; }
   .priorities-grid { grid-template-columns: 1fr; }
   .priority-card { grid-template-columns: 120px 1fr; }
   .priority-card__media { min-height: 120px; }

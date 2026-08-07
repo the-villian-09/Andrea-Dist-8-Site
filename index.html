@@ -399,6 +399,25 @@
       updateBackToTopVisibility();
     }
 
+    const header = document.querySelector('.site-header');
+    const banners = document.querySelectorAll('.top-bar');
+
+    if (header && banners.length) {
+      const updateBannerVisibility = () => {
+        const bannerVisible = Array.from(banners).some((banner) => {
+          const rect = banner.getBoundingClientRect();
+          const style = window.getComputedStyle(banner);
+          return style.display !== 'none' && rect.top < window.innerHeight && rect.bottom > 0;
+        });
+        header.classList.toggle('banner-visible', bannerVisible);
+      };
+
+      const bannerObserver = new IntersectionObserver(updateBannerVisibility, { threshold: 0 });
+      banners.forEach((banner) => bannerObserver.observe(banner));
+      window.addEventListener('resize', updateBannerVisibility, { passive: true });
+      updateBannerVisibility();
+    }
+
     const revealTargets = document.querySelectorAll('main > section:not(#home), footer.site-footer');
     if (revealTargets.length > 0) {
       document.body.classList.add('reveal-enabled');
