@@ -177,7 +177,7 @@ button, input, textarea { font: inherit; }
   text-align: center;
 }
 .hero-content img {
-  width: min(520px, 75%);
+  width: min(520px, 95%);
   height: auto;
   margin: 0 auto 30px;
 }
