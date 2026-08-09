@@ -1035,6 +1035,12 @@ button, input, textarea { font: inherit; }
   .hero-image img {
     width: 65%;
   }
+  .contact-form-wrap {
+    order:2
+  }
+  .contact-heading {
+    order: 1;
+  }
 }
 
 @media (max-width: 640px) {
