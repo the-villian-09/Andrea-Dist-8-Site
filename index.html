@@ -204,19 +204,25 @@
       <div class="container contact-layout">
         <div class="contact-form-wrap">
           <form class="contact-form" id="contact-form" action="/api/contact" method="post">
-            <label><span class="field-label">First Name</span><input type="text" name="firstName" placeholder="First Name" /></label>
-            <label><span class="field-label">Last Name</span><input type="text" name="lastName" placeholder="Last Name" /></label>
-            <label><span class="field-label">Email</span><input type="email" name="email" placeholder="Email" required /></label>
-            <label><span class="field-label">Message</span><textarea name="message" rows="4" placeholder="Message"></textarea></label>
-            <fieldset class="help-options">
-              <legend>I would like to help</legend>
-              <label><input type="checkbox" name="help" value="canvass" /> Door-to-Door Canvassing</label>
-              <label><input type="checkbox" name="help" value="calls" /> Call My Friends and Neighbors</label>
-              <label><input type="checkbox" name="help" value="meet-greet" /> Host a Meet &amp; Greet</label>
-              <label><input type="checkbox" name="help" value="yard-sign" /> Put a Sign in My Yard</label>
-            </fieldset>
-            <button class="btn btn-pink btn-block" type="submit">Send Message</button>
-            <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            <div class="form-fields">
+              <label><span class="field-label">First Name</span><input type="text" name="firstName" placeholder="First Name" /></label>
+              <label><span class="field-label">Last Name</span><input type="text" name="lastName" placeholder="Last Name" /></label>
+              <label><span class="field-label">Email</span><input type="email" name="email" placeholder="Email" required /></label>
+              <label><span class="field-label">Message</span><textarea name="message" rows="4" placeholder="Message"></textarea></label>
+              <fieldset class="help-options">
+                <legend>I would like to help</legend>
+                <label><input type="checkbox" name="help" value="canvass" /> Door-to-Door Canvassing</label>
+                <label><input type="checkbox" name="help" value="calls" /> Call My Friends and Neighbors</label>
+                <label><input type="checkbox" name="help" value="meet-greet" /> Host a Meet &amp; Greet</label>
+                <label><input type="checkbox" name="help" value="yard-sign" /> Put a Sign in My Yard</label>
+              </fieldset>
+              <button class="btn btn-pink btn-block" type="submit">Send Message</button>
+              <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+            </div>
+            <div class="form-thank-you" id="form-thank-you" hidden>
+              <h3>Thank you!</h3>
+              <p>Your message has been sent. We'll be in touch soon.</p>
+            </div>
           </form>
         </div>
         <div class="contact-heading">
@@ -488,6 +494,9 @@
 
     const contactForm = document.getElementById('contact-form');
     const formStatus = document.getElementById('form-status');
+    const formThankYou = document.getElementById('form-thank-you');
+    const formFields = contactForm?.querySelector('.form-fields');
+
     if (contactForm && formStatus) {
       contactForm.addEventListener('submit', async (event) => {
         event.preventDefault();
@@ -517,8 +526,19 @@
           const result = await response.json().catch(() => ({}));
 
           if (response.ok) {
-            formStatus.textContent = 'Thank you! Your message has been sent.';
-            contactForm.reset();
+            if (formFields && formThankYou) {
+              formFields.hidden = true;
+              formThankYou.hidden = false;
+              contactForm.reset();
+
+              setTimeout(() => {
+                formThankYou.hidden = true;
+                formFields.hidden = false;
+              }, 10000);
+            } else {
+              formStatus.textContent = 'Thank you! Your message has been sent.';
+              contactForm.reset();
+            }
           } else {
             formStatus.textContent = result.error || 'Something went wrong. Please try again.';
           }

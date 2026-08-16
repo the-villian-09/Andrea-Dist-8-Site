@@ -21,7 +21,7 @@ export default async function handler(request, response) {
   try {
     await resend.emails.send({
       from: 'Campaign Site <onboarding@resend.dev>',
-      to: 'garrybcii@gmail.com',
+      to: 'vote4waugh@outlook.com',
       replyTo: email,
       subject: `New campaign message from ${firstName || ''} ${lastName || ''}`.trim(),
       html: `
