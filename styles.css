@@ -225,7 +225,7 @@ button, input, textarea { font: inherit; }
   width: 100%;
   min-height: calc(90vh - var(--header-height));
   background: #f4f4f4;
-  background-image: url(assets/downtown-jax-bw-fade-blur.png);
+  background-image: url(assets/downtown-jax-color-blur.jpg);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -1056,7 +1056,7 @@ button, input, textarea { font: inherit; }
   .hero-image img {
     width: 100%;
     margin: 0 auto;
-    object-position: 20px 0px;
+    object-position: 0px 0px;
   }
 
   .top-bar {
@@ -1134,7 +1134,7 @@ button, input, textarea { font: inherit; }
       width: min(420px, 100%);
   }
   .hero-image img {
-    width: 45%;
+    width: 57%;
   }
   .contact-form-wrap {
     order:2
