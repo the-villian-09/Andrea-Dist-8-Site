@@ -473,14 +473,14 @@ button, input, textarea { font: inherit; }
 
 /* Lightbox within gallery modal */
 .gallery-lightbox {
-  position: absolute;
+  position: fixed;
   inset: 0;
-  z-index: 3;
+  z-index: 250;
   display: flex;
   align-items: center;
   justify-content: center;
   background: rgba(0,0,0,.9);
-  border-radius: var(--radius);
+  border-radius: 0;
 }
 .gallery-lightbox[hidden] { display: none; }
 .gallery-lightbox__img {
